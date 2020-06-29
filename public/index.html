@@ -4,8 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ws</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arizonia&family=Open+Sans:wght@600&family=Parisienne&display=swap');
+        body{
+            background: #eee;
+            margin: 40px;
+        }
+
+        body {
+            font-weight: 900;
+        }
+        h1{
+            text-align: center;
+            color: #444;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #fbfbfb;
+            font-family: 'Arizonia', cursive;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Parisienne', cursive;
+            letter-spacing: 1rem;
+        }
+        .container{
+            max-width: 922px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        input{
+            padding: 16px;
+            font-size: 1.3rem;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-weight: 700;
+            font-family: 'Parisienne', cursive;
+            letter-spacing: .6rem;
+            font-size: 25px;
+            
+        }
+        button{
+            font-size: 1.3rem;
+            padding: 16px;
+            background: #006aee;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .name-form, .chat-form {
+            display: flex;
+            justify-content: center;
+        }
+        .btn-form-send:hover{
+            font-weight: 600;
+            color: black;
+            background: #CAEBF2;
+        }
+        .chat-list{
+            padding: 0;
+        }
+        .chat-list .line{
+            margin: 16px 0;
+            list-style-type: none;
+        }
+        .chat-list .name {
+            color: red;
+            font-size: 5px;
+            font-weight: bold;
+            letter-spacing: .5rem;
+            border-bottom: .3px solid red;
+            width: 100px;
+        }
+        .chat-list .msg {
+            font-size: 1.4rem;
+            margin-top: 4px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1> Deno WebSocket </h1>
+    <div class="container">
+        <h1> Deno WebSocket </h1>
+        <form class="name-form" >
+            <input type="text" name="nikname" placeholder="Choose Nikname" required>
+            <button>Enter Chat</button>
+        </form>
+        <div class="chatroom">
+            <ul class="chat-list">
+                <li class="line">
+                    <div class="name"><i>Vanik</i></div>
+                    <div class="msg">Hello Deno</div>
+                </li>
+            </ul>
+
+            <form class="chat-form ">
+                <input type="text" name="msg" placeholder="Massages" required>
+                <button class="btn-form-send"> Send </button>
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>
