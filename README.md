@@ -6,6 +6,8 @@ A secure runtime for JavaScript and TypeScript
 $ deno --version //return deno 0.41.0 v8 8.2.308 typescript 3.8.3
 
 $ deno run --allow-net --allow-read {FILE_NAME}
+
+$ https://deno.land/std
 ```
 
 [Manual](https://deno.land/manual.html)

@@ -6,7 +6,7 @@ const { PORT } = config();
 const port: number = parseInt(PORT)
 const serveer = serve({ port });
 
-console.log(`********* Is runing  ${serveer}`)
+console.log(`********* Is runing  ${PORT}`)
 
 for await (const req of serveer) {
 
