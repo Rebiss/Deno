@@ -9,6 +9,7 @@ import { chatConn } from './ws/room.ts';
 const { PORT } = config();
 const port: number = parseInt(PORT)
 const serveer = serve({ port });
+console.log('************');
 
 for await (const req of serveer) {
 

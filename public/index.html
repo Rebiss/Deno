@@ -115,11 +115,32 @@
     </div>
 
     <script>
-        /**
-         *!WS conection
-         */
+        
+        //WS conection
         const url = `ws://localhost:3022/ws`
-        let ws = new WebSocket();
+        let ws = new WebSocket(url);
+
+        //Dom Refs
+        const nameForm = document.querySelector('.name-form');
+        const chatRoom = document.querySelector('.chatroom');
+        const chatList = document.querySelector('.chat-list');
+        const chatForm = document.querySelector('.chat-form');
+
+        //Name
+        let name = 'anon'
+
+        //Enter with chat name
+        nameForm.addEventListener('submit', (ev) => {
+            console.log('Work******')
+            ev.preventDefault();
+            name = nameForm.nikname.value;
+            nameForm.classList.add('hidden');
+            chatRoom.classList.remove('hidden')
+        });
+
+        //Send a new masg.
+
+
     </script>
     
 </body>
