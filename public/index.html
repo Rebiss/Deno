@@ -130,8 +130,8 @@
         let name = 'anon'
 
         //Enter with chat name
-        nameForm.addEventListener('submit', (ev) => {
-            console.log('Work******')
+        nameForm.addEventListener('submit', ev => {
+            console.log('Room******')
             ev.preventDefault();
             name = nameForm.nikname.value;
             nameForm.classList.add('hidden');
@@ -139,6 +139,12 @@
         });
 
         //Send a new masg.
+        chatForm.addEventListener('submit', ev => {
+            console.log('Send******')
+            ev.preventDefault();
+            let msg = chatForm.msg.value;
+            ws.send(JSON.stringify({ name, msg }));
+        })
 
 
     </script>
