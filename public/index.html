@@ -100,12 +100,7 @@
             <button>Enter Chat</button>
         </form>
         <div class="chatroom hidden">
-            <ul class="chat-list">
-                <li class="line">
-                    <div class="name"><i>Vanik</i></div>
-                    <div class="msg">Hello Deno</div>
-                </li>
-            </ul>
+            <ul class="chat-list"></ul>
 
             <form class="chat-form ">
                 <input type="text" name="msg" placeholder="Massages" required>
@@ -144,8 +139,23 @@
             ev.preventDefault();
             let msg = chatForm.msg.value;
             ws.send(JSON.stringify({ name, msg }));
-        })
+        });
 
+        //Output Message function
+        const outputMSG = ({ data }) => {
+            console.log(data)
+            const {name, msg} = JSON.parse(data);
+            let domElement = `
+                <li class="line">
+                    <div class="name"><i>${ name }</i></div>
+                    <div class="msg">${ msg }</div>
+                </li>
+            `;
+            chatList.innerHTML += domElement;
+        };
+
+        //Listenner
+        ws.addEventListener('massage', outputMSG);
 
     </script>
     

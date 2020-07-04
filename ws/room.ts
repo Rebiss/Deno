@@ -1,7 +1,18 @@
 import { WebSocket, isWebSocketCloseEvent } from "https://deno.land/std/ws/mod.ts";
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-const socket = new Map<string, WebSocket>()
+const socket = new Map<string, WebSocket>();
+
+interface IBrodcast {
+    name: string,
+    msg: string
+}
+//Brodcast Events all users
+const brodcastEvent = (obj: IBrodcast) => {
+    socket.forEach((ws: WebSocket) => {
+        ws.send(JSON.stringify(obj))
+    })
+};
 
 const chatConn = async (ws: WebSocket) => {
     console.log('Socket Connection');
@@ -22,7 +33,7 @@ const chatConn = async (ws: WebSocket) => {
         //Create Ev object
         if( typeof ev === 'string' ) {
             let evObj = JSON.parse(ev);
-            console.log('EVOBJ',evObj)
+            brodcastEvent(evObj);
         }
     }
 }

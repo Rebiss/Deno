@@ -2,14 +2,13 @@ import { serve } from "https://deno.land/std/http/server.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { acceptWebSocket, acceptable } from "https://deno.land/std/ws/mod.ts";
 
-// @deno-types="./ws/room.ts"
+// @ts-ignore
 import { chatConn } from './ws/room.ts';
 
 //!Setup
 const { PORT } = config();
 const port: number = parseInt(PORT)
 const serveer = serve({ port });
-console.log('************');
 
 for await (const req of serveer) {
 
