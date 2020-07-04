@@ -21,7 +21,7 @@ const chatConn = async (ws: WebSocket) => {
 
     //Listen WS event
     for await (const ev of ws) {
-        // console.log('******', ev);
+        console.log('******', ev);
         
         //If conn closed, del socket
         if ( isWebSocketCloseEvent(ev) ) {
