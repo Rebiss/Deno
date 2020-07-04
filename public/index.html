@@ -122,11 +122,10 @@
         const chatForm = document.querySelector('.chat-form');
 
         //Name
-        let name = 'anon'
+        let name = 'Sebastian'
 
         //Enter with chat name
         nameForm.addEventListener('submit', ev => {
-            console.log('Room******')
             ev.preventDefault();
             name = nameForm.nikname.value;
             nameForm.classList.add('hidden');
@@ -135,15 +134,14 @@
 
         //Send a new masg.
         chatForm.addEventListener('submit', ev => {
-            console.log('Send******')
             ev.preventDefault();
             let msg = chatForm.msg.value;
             ws.send(JSON.stringify({ name, msg }));
+            chatForm.reset();
         });
 
         //Output Message function
         const outputMSG = ({ data }) => {
-            console.log(data)
             const {name, msg} = JSON.parse(data);
             let domElement = `
                 <li class="line">
@@ -155,7 +153,7 @@
         };
 
         //Listenner
-        ws.addEventListener('massage', outputMSG);
+        ws.addEventListener('message', outputMSG);
 
     </script>
     

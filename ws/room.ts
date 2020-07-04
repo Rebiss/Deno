@@ -15,15 +15,13 @@ const brodcastEvent = (obj: IBrodcast) => {
 };
 
 const chatConn = async (ws: WebSocket) => {
-    console.log('Socket Connection');
-
     //new ws connection
     const uid = v4.generate();
     socket.set(uid, ws);
 
-    //
+    //Listen WS event
     for await (const ev of ws) {
-        console.log('******', ev);
+        // console.log('******', ev);
         
         //If conn closed, del socket
         if ( isWebSocketCloseEvent(ev) ) {
@@ -32,7 +30,7 @@ const chatConn = async (ws: WebSocket) => {
 
         //Create Ev object
         if( typeof ev === 'string' ) {
-            let evObj = JSON.parse(ev);
+            let evObj = JSON.parse(ev.toString());
             brodcastEvent(evObj);
         }
     }
